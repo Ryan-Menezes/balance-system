@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Historic;
 use App\Http\Requests\StoreHistoricRequest;
 use App\Http\Requests\UpdateHistoricRequest;
+use App\Http\Controllers\Controller;
 
 class HistoricController extends Controller
 {
