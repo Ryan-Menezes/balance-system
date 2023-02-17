@@ -16,6 +16,8 @@
 @stop
 
 @section('content')
+    @include('admin.includes.alerts')
+
     <div class="p-3 bg-white border">
         <div class="d-flex align-items-center justify-content-end">
             <a href="{{ route('admin.balance.deposit') }}" class="btn btn-primary">

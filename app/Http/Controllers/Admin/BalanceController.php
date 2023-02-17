@@ -26,6 +26,14 @@ class BalanceController extends Controller
 
         $response = $balance->deposit($request->value);
 
-        dd($response);
+        if (!$response['success']) {
+            return redirect()
+                ->back()
+                ->with('error', $response['message']);
+        }
+
+        return redirect()
+            ->route('admin.balance')
+            ->with('success', $response['message']);
     }
 }
