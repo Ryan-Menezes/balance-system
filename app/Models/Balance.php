@@ -9,5 +9,16 @@ class Balance extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'id',
+        'user_id',
+        'amount',
+    ];
+
     public $timestamps = false;
+
+    public function deposit(float $value)
+    {
+        dd($value);
+    }
 }

@@ -17,7 +17,7 @@ class CreateBalancesTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE')->onUpdate('CASCADE');
-            $table->double('amount', 10, 2);
+            $table->double('amount', 10, 2)->default(0);
         });
     }
 
