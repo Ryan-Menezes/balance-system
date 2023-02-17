@@ -19,6 +19,12 @@
 @stop
 
 @section('content')
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger">{{ $error }}</div>
+        @endforeach
+    @endif
+
     <form action="{{ route('admin.balance.deposit.store') }}" method="POST" class="form p-3 py-4 border bg-white">
         @csrf
         <div class="form-group">
