@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Site\SiteController;
-use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\{
+    AdminController,
+    BalanceController,
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +26,13 @@ Route::get('/', [SiteController::class, 'index'])->name('site');
 Route::group([
     'prefix' => '/admin',
     'middleware' => ['auth'],
-    'name' => 'admin.',
 ], function () {
-    Route::get('/', [AdminController::class, 'index'])->name('index');
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+
+    Route::group([
+        'prefix' => '/saldo',
+        'middleware' => ['auth'],
+    ], function () {
+        Route::get('/', [BalanceController::class, 'index'])->name('admin.balance.index');
+    });
 });

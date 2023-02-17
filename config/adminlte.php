@@ -304,8 +304,25 @@ return [
         // Sidebar items:
         [
             'text'        => 'Início',
-            'url'         => 'admin/pages',
+            'url'         => 'admin',
             'icon'        => 'fa fa-home',
+        ],
+        [
+            'text'        => 'Financeiro',
+            'url'         => 'admin/pages',
+            'icon'        => 'fa fa-dollar-sign',
+            'submenu'     => [
+                [
+                    'text' => 'Saldo',
+                    'url'  => 'admin/saldo',
+                    'icon' => 'fa fa-money-bill',
+                ],
+                [
+                    'text' => 'Histórico',
+                    'url'  => 'admin/historico',
+                    'icon' => 'fa fa-history',
+                ],
+            ],
         ],
     ],
 
