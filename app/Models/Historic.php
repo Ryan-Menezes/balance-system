@@ -9,9 +9,7 @@ class Historic extends Model
 {
     use HasFactory;
 
-    protected $attributes = [
-        'id',
-        'user_id',
+    protected $fillable = [
         'type',
         'amount',
         'total_before',

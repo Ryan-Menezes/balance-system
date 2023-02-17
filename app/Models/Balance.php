@@ -10,8 +10,6 @@ class Balance extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
-        'user_id',
         'amount',
     ];
 
@@ -19,10 +17,22 @@ class Balance extends Model
 
     public function deposit(float $value): array
     {
-        $this->amount += $value;
+        $amount = $this->amount ?? 0;
+        $total_before = $amount;
+        $total_after = $amount + $value;
+        $this->amount = $total_after;
+
         $deposit = $this->save();
 
-        if (!$deposit) {
+        $historic = auth()->user()->historics()->create([
+            'type'          => 'I',
+            'amount'        => $amount,
+            'total_before'  => $total_before,
+            'total_after'   => $total_after,
+            'date'          => date('Y-m-d'),
+        ]);
+
+        if (!$deposit || !$historic) {
             return [
                 'success' => false,
                 'message' => 'Falha ao recarregar',
