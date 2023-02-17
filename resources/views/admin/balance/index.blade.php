@@ -6,7 +6,7 @@
 
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('admin.index') }}">Início</a>
+                <a href="{{ route('admin') }}">Início</a>
             </li>
             <li class="breadcrumb-item active">
                 Saldo
@@ -18,7 +18,7 @@
 @section('content')
     <div class="p-3 bg-white border">
         <div class="d-flex align-items-center justify-content-end">
-            <a href="" class="btn btn-primary">
+            <a href="{{ route('admin.balance.deposit') }}" class="btn btn-primary">
                 Recarregar
                 <i class="fa fa-cart-plus"></i>
             </a>

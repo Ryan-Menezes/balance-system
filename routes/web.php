@@ -27,12 +27,14 @@ Route::group([
     'prefix' => '/admin',
     'middleware' => ['auth'],
 ], function () {
-    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/', [AdminController::class, 'index'])->name('admin');
 
     Route::group([
         'prefix' => '/saldo',
         'middleware' => ['auth'],
     ], function () {
-        Route::get('/', [BalanceController::class, 'index'])->name('admin.balance.index');
+        Route::get('/', [BalanceController::class, 'index'])->name('admin.balance');
+        Route::get('/depositar', [BalanceController::class, 'deposit'])->name('admin.balance.deposit');
+        Route::post('/depositar', [BalanceController::class, 'depositStore'])->name('admin.balance.deposit.store');
     });
 });
