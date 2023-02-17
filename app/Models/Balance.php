@@ -17,8 +17,21 @@ class Balance extends Model
 
     public $timestamps = false;
 
-    public function deposit(float $value)
+    public function deposit(float $value): array
     {
-        dd($value);
+        $this->amount += $value;
+        $deposit = $this->save();
+
+        if (!$deposit) {
+            return [
+                'success' => false,
+                'message' => 'Falha ao recarregar',
+            ];
+        }
+
+        return [
+            'success' => true,
+            'message' => 'Sucesso ao recarregar',
+        ];
     }
 }
