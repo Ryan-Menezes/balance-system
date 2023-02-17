@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Balance extends Model
 {
@@ -17,6 +18,8 @@ class Balance extends Model
 
     public function deposit(float $value): array
     {
+        DB::beginTransaction();
+
         $amount = $this->amount ?? 0;
         $total_before = $amount;
         $total_after = $amount + $value;
@@ -33,11 +36,15 @@ class Balance extends Model
         ]);
 
         if (!$deposit || !$historic) {
+            DB::rollBack();
+
             return [
                 'success' => false,
                 'message' => 'Falha ao recarregar',
             ];
         }
+
+        DB::commit();
 
         return [
             'success' => true,
