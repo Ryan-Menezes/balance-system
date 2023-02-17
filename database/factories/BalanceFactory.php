@@ -14,7 +14,8 @@ class BalanceFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => 1,
+            'amount' => $this->faker->numberBetween(1000, 600000),
         ];
     }
 }

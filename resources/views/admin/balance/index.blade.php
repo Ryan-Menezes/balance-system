@@ -30,7 +30,7 @@
 
         <div class="small-box bg-success mt-4">
             <div class="inner">
-                <h3 class="mt-3">R$ 90,00</h3>
+                <h3 class="mt-3">R$ {{ number_format($amount, 2, ',', '.') }}</h3>
             </div>
             <div class="icon">
                 <i class="fa fa-money-bill"></i>

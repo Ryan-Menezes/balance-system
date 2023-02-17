@@ -14,6 +14,6 @@ class BalanceSeeder extends Seeder
      */
     public function run()
     {
-        Balance::factory(100)->create();
+        Balance::factory(1)->create();
     }
 }
