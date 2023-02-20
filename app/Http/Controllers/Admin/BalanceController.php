@@ -36,4 +36,16 @@ class BalanceController extends Controller
             ->route('admin.balance')
             ->with('success', $response['message']);
     }
+
+    public function withdrawn()
+    {
+        return view('admin.balance.withdrawn');
+    }
+
+    public function withdrawnStore(MoneyValidationFormRequest $request)
+    {
+        dd($request->all());
+
+        $balance = auth()->user()->balance()->firstOrCreate([]);
+    }
 }

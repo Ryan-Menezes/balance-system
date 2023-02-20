@@ -24,10 +24,12 @@
                 Recarregar
                 <i class="fa fa-cart-plus"></i>
             </a>
-            <a href="" class="btn btn-danger ml-3">
+            @if ($amount > 0)
+            <a href="{{ route('admin.balance.withdrawn') }}" class="btn btn-danger ml-3">
                 Sacar
                 <i class="fa fa-cart-arrow-down"></i>
             </a>
+            @endif
         </div>
 
         <div class="small-box bg-success mt-4">
