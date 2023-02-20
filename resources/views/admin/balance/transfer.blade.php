@@ -10,7 +10,7 @@
                 <a href="{{ route('admin.balance') }}">Saldo</a>
             </li>
             <li class="breadcrumb-item active">
-                Sacar
+                Transferir
             </li>
         </ol>
     </div>
@@ -21,18 +21,17 @@
 
     <div class="card card-primary card-outline">
         <div class="card-header">
-            <h2>Sacar</h2>
+            <h2>Transferir saldo (informe o recebedor)</h2>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.balance.withdraw.store') }}" method="POST" class="form">
+            <form action="{{ route('admin.balance.transfer.store') }}" method="POST" class="form ">
                 @csrf
                 <div class="form-group">
-                    <input type="text" name="value" class="form-control" placeholder="Valor do saque" />
+                    <input type="text" name="sender" class="form-control" placeholder="Informação de quem vai receber o saque (Nome ou E-mail)" />
                 </div>
 
-                <button type="submit" class="btn btn-danger">Sacar</button>
+                <button type="submit" class="btn btn-danger">Próxima etapa</button>
             </form>
         </div>
     </div>
 @stop
-
