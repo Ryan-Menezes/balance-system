@@ -21,7 +21,7 @@
 @section('content')
     @include('admin.includes.alerts')
 
-    <form action="{{ route('admin.balance.withdrawn.store') }}" method="POST" class="form p-3 py-4 border bg-white">
+    <form action="{{ route('admin.balance.withdraw.store') }}" method="POST" class="form p-3 py-4 border bg-white">
         @csrf
         <div class="form-group">
             <input type="text" name="value" class="form-control" placeholder="Valor do saque" />

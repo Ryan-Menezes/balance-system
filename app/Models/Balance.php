@@ -51,4 +51,47 @@ class Balance extends Model
             'message' => 'Sucesso ao recarregar',
         ];
     }
+
+    public function withdraw(float $value): array
+    {
+        if ($this->amount < $value) {
+            return [
+                'success' => false,
+                'message' => 'Saldo insuficiênte',
+            ];
+        }
+
+        DB::beginTransaction();
+
+        $amount = $this->amount ?? 0;
+        $total_before = $amount;
+        $total_after = $amount - $value;
+        $this->amount = $total_after;
+
+        $withdraw = $this->save();
+
+        $historic = auth()->user()->historics()->create([
+            'type'          => 'O',
+            'amount'        => $amount,
+            'total_before'  => $total_before,
+            'total_after'   => $total_after,
+            'date'          => date('Y-m-d'),
+        ]);
+
+        if (!$withdraw || !$historic) {
+            DB::rollBack();
+
+            return [
+                'success' => false,
+                'message' => 'Falha ao sacar',
+            ];
+        }
+
+        DB::commit();
+
+        return [
+            'success' => true,
+            'message' => 'Sucesso ao sacar',
+        ];
+    }
 }

@@ -25,7 +25,7 @@
                 <i class="fa fa-cart-plus"></i>
             </a>
             @if ($amount > 0)
-            <a href="{{ route('admin.balance.withdrawn') }}" class="btn btn-danger ml-3">
+            <a href="{{ route('admin.balance.withdraw') }}" class="btn btn-danger ml-3">
                 Sacar
                 <i class="fa fa-cart-arrow-down"></i>
             </a>

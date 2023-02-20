@@ -38,7 +38,7 @@ Route::group([
         Route::get('/depositar', [BalanceController::class, 'deposit'])->name('admin.balance.deposit');
         Route::post('/depositar', [BalanceController::class, 'depositStore'])->name('admin.balance.deposit.store');
 
-        Route::get('/sacar', [BalanceController::class, 'withdrawn'])->name('admin.balance.withdrawn');
-        Route::post('/sacar', [BalanceController::class, 'withdrawnStore'])->name('admin.balance.withdrawn.store');
+        Route::get('/sacar', [BalanceController::class, 'withdraw'])->name('admin.balance.withdraw');
+        Route::post('/sacar', [BalanceController::class, 'withdrawStore'])->name('admin.balance.withdraw.store');
     });
 });
