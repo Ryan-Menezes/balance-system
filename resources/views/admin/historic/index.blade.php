@@ -72,7 +72,7 @@
                 </tbody>
             </table>
 
-            {!! $historics->links() !!}
+            {!! $historics->appends($data)->links() !!}
         </div>
     </div>
 @stop

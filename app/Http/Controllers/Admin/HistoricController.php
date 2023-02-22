@@ -12,10 +12,10 @@ class HistoricController extends Controller
 
     public function index(Request $request, Historic $historic)
     {
-        $data = $request->all();
+        $data = $request->except('_token');
         $historics = $historic->search($data, $this->totalPage);
         $types = $historic->type();
 
-        return view('admin.historic.index', compact('historics', 'types'));
+        return view('admin.historic.index', compact('historics', 'types', 'data'));
     }
 }
