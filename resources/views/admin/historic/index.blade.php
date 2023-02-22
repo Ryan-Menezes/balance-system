@@ -22,12 +22,15 @@
                 <h1>Histórico</h1>
 
                 <form action="{{ route('admin.historic') }}" method="GET" class="form form-inline">
-                    <input type="text" name="id" class="form-control mr-2" placeholder="ID" />
-                    <input type="date" name="date" class="form-control mr-2" />
+                    <input type="text" name="id" class="form-control mr-2" placeholder="ID"
+                        value="{{ request('id') }}" />
+                    <input type="date" name="date" class="form-control mr-2" value="{{ request('date') }}" />
                     <select name="type" class="select form-control mr-2">
                         <option value="">Todos</option>
                         @foreach ($types as $key => $type)
-                            <option value="{{ $key }}">{{ $type }}</option>
+                            <option value="{{ $key }}" {{ $key === request('type') ? 'selected' : '' }}>
+                                {{ $type }}
+                            </option>
                         @endforeach
                     </select>
 

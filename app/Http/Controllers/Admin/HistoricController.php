@@ -12,7 +12,8 @@ class HistoricController extends Controller
 
     public function index(Request $request, Historic $historic)
     {
-        $historics = auth()->user()->historics()->with('userSender')->paginate($this->totalPage);
+        $data = $request->all();
+        $historics = $historic->search($data, $this->totalPage);
         $types = $historic->type();
 
         return view('admin.historic.index', compact('historics', 'types'));
