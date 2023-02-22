@@ -20,6 +20,21 @@
         <div class="card-header">
             <div class="d-flex align-items-center justify-content-between">
                 <h1>Histórico</h1>
+
+                <form action="{{ route('admin.historic') }}" method="GET" class="form form-inline">
+                    <input type="text" name="id" class="form-control mr-2" placeholder="ID" />
+                    <input type="date" name="date" class="form-control mr-2" />
+                    <select name="type" class="select form-control mr-2">
+                        <option value="">Todos</option>
+                        @foreach ($types as $key => $type)
+                            <option value="{{ $key }}">{{ $type }}</option>
+                        @endforeach
+                    </select>
+
+                    <button type="submit" class="btn border">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
             </div>
         </div>
         <div class="card-body">
