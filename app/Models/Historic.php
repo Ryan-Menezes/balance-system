@@ -38,6 +38,11 @@ class Historic extends Model
         return $types[$type] ?? $types;
     }
 
+    public function scopeUserAuth($query)
+    {
+        return $query->where('user_id', auth()->user()->id);
+    }
+
     public function getDateAttribute($value)
     {
         return Carbon::parse($value)->format('d/m/Y');
@@ -56,7 +61,7 @@ class Historic extends Model
     public function search(array $data, int $totalPage = 10)
     {
         return $this
-            ->where('user_id', auth()->user()->id)
+            ->userAuth()
             ->where(function ($query) use ($data) {
                 if (isset($data['id'])) {
                     $query->where('id', $data['id']);
@@ -70,6 +75,7 @@ class Historic extends Model
                     $query->where('type', $data['type']);
                 }
             })
+            ->with('userSender')
             ->paginate($totalPage);
     }
 }
