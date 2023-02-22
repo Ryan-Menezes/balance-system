@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="card-body">
-            <table class="table table-hover">
+            <table class="table table-hover mb-2">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -53,6 +53,8 @@
                     @endforelse
                 </tbody>
             </table>
+
+            {!! $historics->links() !!}
         </div>
     </div>
 @stop
