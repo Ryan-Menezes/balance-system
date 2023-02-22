@@ -42,6 +42,7 @@ Route::group([
         Route::post('/sacar', [BalanceController::class, 'withdrawStore'])->name('admin.balance.withdraw.store');
 
         Route::get('/transferir', [BalanceController::class, 'transfer'])->name('admin.balance.transfer');
+        Route::post('/transferir/confirmar', [BalanceController::class, 'confirmTransfer'])->name('admin.balance.transfer.confirm');
         Route::post('/transferir', [BalanceController::class, 'transferStore'])->name('admin.balance.transfer.store');
     });
 });

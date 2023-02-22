@@ -24,10 +24,11 @@
             <h2>Transferir saldo (informe o recebedor)</h2>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.balance.transfer.store') }}" method="POST" class="form ">
+            <form action="{{ route('admin.balance.transfer.confirm') }}" method="POST" class="form ">
                 @csrf
                 <div class="form-group">
-                    <input type="text" name="sender" class="form-control" placeholder="Informação de quem vai receber o saque (Nome ou E-mail)" />
+                    <input type="text" name="sender" class="form-control"
+                        placeholder="Informação de quem vai receber o saque (Nome ou E-mail)" />
                 </div>
 
                 <button type="submit" class="btn btn-danger">Próxima etapa</button>

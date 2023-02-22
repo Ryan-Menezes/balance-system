@@ -10,7 +10,10 @@
                 <a href="{{ route('admin.balance') }}">Saldo</a>
             </li>
             <li class="breadcrumb-item active">
-                Depositar
+                <a href="{{ route('admin.balance.transfer') }}">Transferir</a>
+            </li>
+            <li class="breadcrumb-item active">
+                Confirmação
             </li>
         </ol>
     </div>
@@ -21,16 +24,21 @@
 
     <div class="card card-primary card-outline">
         <div class="card-header">
-            <h2>Depositar</h2>
+            <h2>Confirmar Transferência</h2>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.balance.deposit.store') }}" method="POST" class="form ">
+            <p><strong>Recebedor: </strong>{{ $sender->name }}</p>
+            <p><strong>Seu saldo atual: </strong>R${{ number_format($balance->amount, 2, ',', '.') }}</p>
+
+            <form action="{{ route('admin.balance.transfer.store') }}" method="POST" class="form ">
                 @csrf
+                <input type="hidden" name="sender_id" value="{{ $sender->id }}" />
+
                 <div class="form-group">
-                    <input type="text" name="value" class="form-control" placeholder="Valor recarga" />
+                    <input type="text" name="value" class="form-control" placeholder="Valor" />
                 </div>
 
-                <button type="submit" class="btn btn-danger">Enviar</button>
+                <button type="submit" class="btn btn-danger">Transferir</button>
             </form>
         </div>
     </div>
