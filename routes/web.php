@@ -6,6 +6,7 @@ use App\Http\Controllers\Site\SiteController;
 use App\Http\Controllers\Admin\{
     AdminController,
     BalanceController,
+    HistoricController,
 };
 
 /*
@@ -45,4 +46,6 @@ Route::group([
         Route::post('/transferir/confirmar', [BalanceController::class, 'confirmTransfer'])->name('admin.balance.transfer.confirm');
         Route::post('/transferir', [BalanceController::class, 'transferStore'])->name('admin.balance.transfer.store');
     });
+
+    Route::get('/historico', [HistoricController::class, 'index'])->name('admin.historic');
 });

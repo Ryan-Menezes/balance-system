@@ -52,7 +52,8 @@
                 <div class="icon">
                     <i class="fa fa-money-bill"></i>
                 </div>
-                <a href="" class="small-box-footer">Histórico <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin.historic') }}" class="small-box-footer">Histórico <i
+                        class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>

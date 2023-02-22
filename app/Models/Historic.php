@@ -17,4 +17,8 @@ class Historic extends Model
         'user_id_transaction',
         'date',
     ];
+
+    protected $casts = [
+        'date' => 'datetime',
+    ];
 }
