@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Historic;
 use App\Http\Controllers\Controller;
 
 class HistoricController extends Controller
 {
     public function index()
     {
-        $historics = auth()->user()->historics;
+        $historics = auth()->user()->historics()->with('userSender')->get();
 
         return view('admin.historic.index', compact('historics'));
     }
