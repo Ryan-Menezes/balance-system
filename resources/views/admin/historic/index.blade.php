@@ -1,5 +1,9 @@
 @extends('adminlte::page')
 
+@section('adminlte_css')
+    <script src="https://cdn.tailwindcss.com"></script>
+@stop
+
 @section('content_header')
     <div class="d-flex align-items-center justify-content-end mb-2">
         <ol class="breadcrumb">

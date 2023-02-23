@@ -60,4 +60,13 @@ class User extends Authenticatable
             ->orWhere('email', $sender)
             ->first();
     }
+
+    public function adminlte_image()
+    {
+        if ($this->image === null) {
+            return url('assets/img/default.png');
+        }
+
+        return url('storage/users/' . $this->image);
+    }
 }

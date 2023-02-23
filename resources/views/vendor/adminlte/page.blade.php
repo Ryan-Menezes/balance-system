@@ -5,8 +5,6 @@
 @section('adminlte_css')
     @stack('css')
     @yield('css')
-
-    <script src="https://cdn.tailwindcss.com"></script>
 @stop
 
 @section('classes_body', $layoutHelper->makeBodyClasses())
