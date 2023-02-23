@@ -30,9 +30,8 @@
                     <input type="text" name="value" class="form-control" placeholder="Valor do saque" />
                 </div>
 
-                <button type="submit" class="btn btn-danger">Sacar</button>
+                <button type="submit" class="btn btn-primary bg-primary">Sacar</button>
             </form>
         </div>
     </div>
 @stop
-

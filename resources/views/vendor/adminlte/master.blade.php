@@ -74,8 +74,6 @@
         <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
     @endif
 
-    <script src="https://cdn.tailwindcss.com"></script>
-
 </head>
 
 <body class="@yield('classes_body')" @yield('body_data')>

@@ -308,6 +308,11 @@ return [
             'icon'        => 'fa fa-home',
         ],
         [
+            'text'        => 'Perfil',
+            'url'         => 'admin/perfil',
+            'icon'        => 'fa fa-user',
+        ],
+        [
             'text'        => 'Financeiro',
             'url'         => 'admin/pages',
             'icon'        => 'fa fa-dollar-sign',

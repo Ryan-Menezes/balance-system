@@ -25,7 +25,7 @@
                     <input type="text" name="id" class="form-control mr-2" placeholder="ID"
                         value="{{ request('id') }}" />
                     <input type="date" name="date" class="form-control mr-2" value="{{ request('date') }}" />
-                    <select name="type" class="select form-control mr-2">
+                    <select name="type" class="form-control mr-2">
                         <option value="">Todos</option>
                         @foreach ($types as $key => $type)
                             <option value="{{ $key }}" {{ $key === request('type') ? 'selected' : '' }}>

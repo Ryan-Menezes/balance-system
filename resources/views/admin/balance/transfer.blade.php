@@ -31,7 +31,7 @@
                         placeholder="Informação de quem vai receber o saque (Nome ou E-mail)" />
                 </div>
 
-                <button type="submit" class="btn btn-danger">Próxima etapa</button>
+                <button type="submit" class="btn btn-primary bg-primary">Próxima etapa</button>
             </form>
         </div>
     </div>

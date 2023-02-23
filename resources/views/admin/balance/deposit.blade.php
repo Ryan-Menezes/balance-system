@@ -30,7 +30,7 @@
                     <input type="text" name="value" class="form-control" placeholder="Valor recarga" />
                 </div>
 
-                <button type="submit" class="btn btn-danger">Enviar</button>
+                <button type="submit" class="btn btn-primary bg-primary">Enviar</button>
             </form>
         </div>
     </div>

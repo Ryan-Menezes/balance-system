@@ -38,7 +38,7 @@
                     <input type="text" name="value" class="form-control" placeholder="Valor" />
                 </div>
 
-                <button type="submit" class="btn btn-danger">Transferir</button>
+                <button type="submit" class="btn btn-primary bg-primary">Transferir</button>
             </form>
         </div>
     </div>
