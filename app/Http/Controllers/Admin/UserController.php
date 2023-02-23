@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -14,6 +15,7 @@ class UserController extends Controller
 
     public function profileUpdate(Request $request)
     {
+        $user = auth()->user();
         $data = $request->all();
 
         if ($data['password'] !== null) {
@@ -22,7 +24,30 @@ class UserController extends Controller
             unset($data['password']);
         }
 
-        $update = auth()->user()->update($data);
+        $data['image'] = $user->image;
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $name = $user->id . '-' . Str::kebab($user->name) . '-' . time();
+
+            if ($user->image) {
+                $name = $user->image;
+            }
+
+            $extension = $request->image->extension();
+            $filename = "{$name}.{$extension}";
+
+            $upload = $request->image->storeAs('users', $filename);
+
+            if (!$upload) {
+                return redirect()
+                    ->back()
+                    ->with('error', 'Falha ao tentar atualizar à imagem do perfil!');
+            }
+
+            $data['image'] = $filename;
+        }
+
+        $update = $user->update($data);
 
         if (!$update) {
             return redirect()
