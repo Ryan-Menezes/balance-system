@@ -14,4 +14,4 @@ cd "project directory"
 php artisan migrate --seed
 ```
 ## This project was developed with the help of an online course
-Course link: [https://academy.especializati.com.br/curso/laravel-55-gratuito][(https://youtu.be/XqxUHVVO7-U](https://academy.especializati.com.br/curso/laravel-55-gratuito)).
+Course link: https://academy.especializati.com.br/curso/laravel-55-gratuito
